@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relBidder"
+    android:padding="@dimen/_8sdp">
+
+    <TextView
+        android:id="@+id/lbBidders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:drawableEnd="@drawable/mazad"
+        android:drawablePadding="@dimen/_8sdp"
+        android:fontFamily="@font/tajawal_medium"
+        android:text="المزايدون"
+        android:textColor="@color/black_grey"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:drawableStart="@drawable/previous"
+        android:drawablePadding="@dimen/_8sdp"
+        android:fontFamily="@font/tajawal_medium"
+        android:text="عرض الكل"
+        android:textColor="@color/pink"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBidders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbBidders"
+        android:layout_marginTop="@dimen/_8sdp" />
+</RelativeLayout>

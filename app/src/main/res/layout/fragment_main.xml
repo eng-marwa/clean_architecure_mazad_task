@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp"
+        tools:context=".presentation.main_categories.view.MainFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mainCategories"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:hint="فئة اساسية"
+            android:inputType="none"
+            app:hintEnabled="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/mainCategoriesDropDown"
+                style="@style/DropDown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:fontFamily="@font/tajawal_medium"
+                android:imeOptions="actionNext"
+                android:inputType="none"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="0dp"
+                android:textColor="@color/black_grey"
+                android:textSize="@dimen/_11ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/subCategoriesLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:hint="فئة فرعيه"
+            android:inputType="none"
+            android:visibility="gone"
+            app:hintEnabled="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/subCategoriesDropDown"
+                style="@style/DropDown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:fontFamily="@font/tajawal_medium"
+                android:imeOptions="actionNext"
+                android:inputType="none"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="0dp"
+                android:textColor="@color/black_grey"
+                android:textSize="@dimen/_11ssp"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="التفاصيل"
+            android:fontFamily="@font/tajawal_medium"
+            android:textColor="@color/white"
+            android:id="@+id/btnNavigateToDetails"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

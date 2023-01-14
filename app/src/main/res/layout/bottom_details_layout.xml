@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_8sdp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnCurrentValue"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="القيمة الحالية للمزاد"
+                android:textColor="@color/black_grey"
+                android:gravity="center"
+                android:fontFamily="@font/tajawal_medium"
+                android:textSize="@dimen/_11ssp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="200$"
+                android:textColor="@color/black_grey"
+                android:gravity="center"
+                android:fontFamily="@font/tajawal_medium"
+                android:textSize="@dimen/_11ssp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="+10000"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/tajawal_regular"
+            android:textSize="@dimen/_12ssp"
+            android:background="@drawable/orange_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="+10000"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/tajawal_regular"
+            android:textSize="@dimen/_12ssp"
+            android:background="@drawable/orange_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="+10000"
+            android:fontFamily="@font/tajawal_regular"
+            android:textSize="@dimen/_12ssp"
+            android:background="@drawable/orange_label" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnCurrentValue">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/send"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_grey"
+            android:background="@drawable/input_bg"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:fontFamily="@font/tajawal_medium"
+            android:textSize="@dimen/_11ssp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:hint="اكتب المبلغ"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

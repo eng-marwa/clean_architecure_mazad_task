@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.details.view.DetailsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/top_details_layout" />
+
+                <include layout="@layout/mazad_details_layout" />
+
+                <include layout="@layout/bidders_details_layout"
+                    android:id="@+id/bidderLayout"/>
+
+                <include layout="@layout/buyer_details_layout" />
+
+                <include layout="@layout/similar_details_layout" android:id="@+id/similarItems" />
+
+                <include layout="@layout/bottom_details_layout" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_180sdp"
+                android:layout_marginEnd="@dimen/_60sdp"
+                android:background="@drawable/board_banner"
+                android:elevation="@dimen/_8sdp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:gravity="center"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/grey"
+                        android:text="بتاريخ"
+                        android:id="@+id/lbDate"
+                        android:fontFamily="@font/tajawal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/lbDateValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14ssp"
+                        android:textColor="@color/black_purple"
+                        android:text="26-11-2021"
+                        android:gravity="center"
+                        android:layout_below="@+id/lbDate"
+                        android:fontFamily="@font/tajawal_bold"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_below="@+id/lbDateValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="13:59:00"
+                        android:gravity="center"
+                        android:fontFamily="@font/tajawal_medium"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_10ssp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:gravity="center"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/grey"
+                        android:text="المزاد يبدأ بعد"
+                        android:id="@+id/lbBidText"
+                        android:fontFamily="@font/tajawal_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/lbBidHour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_16ssp"
+                        android:textColor="@color/yellow"
+                        android:text="31 :22 :55"
+                        android:gravity="center"
+                        android:layout_below="@+id/lbBidText"
+                        android:fontFamily="@font/tajawal_bold"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/yellow"
+                        android:text="دقيقة :ساعة :يوم"
+                        android:gravity="center"
+                        android:layout_below="@+id/lbBidHour"
+                        android:fontFamily="@font/tajawal_regular"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_190sdp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:padding="@dimen/_8sdp"
+    android:background="@drawable/ic_outline_rectangle">
+
+    <RelativeLayout
+        android:id="@+id/relItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp">
+
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            app:srcCompat="@drawable/car"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:background="@drawable/direct_text_bg"
+            android:fontFamily="@font/tajawal_medium"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:text="مزاد مباشر"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/fav" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/lbBidDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relItem"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/tajawal_medium"
+        android:minLines="2"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:text="سيارة سريعة بي إم دبليو تصنيع 2021 حالته جيدة"
+        android:textColor="@color/black_grey"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_below="@+id/lbBidDes"
+        android:elevation="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/lbDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tajawal_medium"
+                android:gravity="center"
+                android:text="بداية المزاد"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/lbDateValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbDate"
+                android:fontFamily="@font/tajawal_bold"
+                android:gravity="center"
+                android:text="20000"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbDateValue"
+                android:fontFamily="@font/tajawal_medium"
+                android:gravity="center"
+                android:text="ريال"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/lbBidText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tajawal_medium"
+                android:gravity="center"
+                android:text=" يبدأ بعد"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/lbBidHour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbBidText"
+                android:fontFamily="@font/tajawal_bold"
+                android:gravity="center"
+                android:text="3 :22 :55"
+                android:textColor="@color/black_grey"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbBidHour"
+                android:fontFamily="@font/tajawal_regular"
+                android:gravity="center"
+                android:text="دقيقة :ساعة :يوم"
+                android:textColor="@color/black_grey"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

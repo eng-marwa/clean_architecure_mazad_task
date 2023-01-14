@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_110sdp"
+    android:background="@drawable/buyer_bg"
+    android:padding="@dimen/_8sdp">
+
+    <TextView
+        android:id="@+id/lbBuyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:drawableEnd="@drawable/mazad"
+        android:drawablePadding="@dimen/_8sdp"
+        android:fontFamily="@font/tajawal_medium"
+        android:text="البائع"
+        android:textColor="@color/black_grey"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:src="@drawable/fv" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbBuyer"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/lbBuyerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@+id/ivBuyer"
+            android:fontFamily="@font/tajawal_bold"
+            android:text="اسم البائع"
+            android:textColor="@color/black_grey"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbBuyerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbBuyerName"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@+id/ivBuyer"
+            android:fontFamily="@font/tajawal_medium"
+            android:text="+966598398"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/black_purple"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/lbBuyerRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbBuyerPhone"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_toStartOf="@+id/ivBuyer"
+            />
+
+        <TextView
+            android:id="@+id/lbBuyerItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbBuyerRate"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@+id/ivBuyer"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/tajawal_medium"
+            android:text="4 منتجات"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="normal" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivBuyer"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/person1" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

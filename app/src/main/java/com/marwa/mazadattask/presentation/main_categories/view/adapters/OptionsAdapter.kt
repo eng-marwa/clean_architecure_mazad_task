@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,14 +13,12 @@ import com.marwa.mazadattask.data.model.options.OptionsData
 import com.marwa.mazadattask.data.model.sub_categiores.SubCategoriesData
 import com.marwa.mazadattask.data.model.sub_categiores.SubCategoryOptions
 import com.marwa.mazadattask.databinding.OptionItemLayoutBinding
-import com.marwa.mazadattask.presentation.main_categories.viewmodel.CategoriesViewModel
 
 class OptionsAdapter(private val context: Context) :
     RecyclerView.Adapter<OptionsAdapter.OptionsVH>() {
     private lateinit var subAdapter: SubAdapter
     var list = ArrayList<SubCategoriesData>()
     val childOptionLiveData = MutableLiveData<Int>()
-    val nestedChildOptionLiveData = MutableLiveData<Int>()
     private val TAG = "OptionsAdapter"
 
     inner class OptionsVH(itemView: OptionItemLayoutBinding) :
@@ -65,11 +62,9 @@ class OptionsAdapter(private val context: Context) :
         holder.optionDropDown.setAdapter(subOptionsAdapter)
         holder.optionDropDown.setOnItemClickListener { parent, view, position, id ->
             val subCategoryOptions = parent.getItemAtPosition(position) as SubCategoryOptions
-            if(subCategoryOptions.id == -1){
-
+            if (subCategoryOptions.id == -1) {
                 holder.otherLayout.visibility = View.VISIBLE
-            }
-            else if (subCategoryOptions.child == true) {
+            } else if (subCategoryOptions.child == true) {
                 setupSubOptionRV(holder)
                 holder.otherLayout.visibility = View.GONE
                 childOptionLiveData.value = subCategoryOptions.id!!
@@ -97,10 +92,30 @@ class OptionsAdapter(private val context: Context) :
         notifyDataSetChanged()
     }
 
-    fun setSubOptions(data: ArrayList<OptionsData>) {
-     if(::subAdapter.isInitialized){
-         subAdapter.setData(data)
-     }
+    fun setSubOptions(data: ArrayList<OptionsData>, level: String) {
+        if (level == "Parent") {
+            if (::subAdapter.isInitialized) {
+                subAdapter.setData(data)
+            }
+        }else{
+            createChildRV(data)
+        }
+    }
+
+    private fun createChildRV(data: ArrayList<OptionsData>) {
+        subAdapter.createChildRV(data)
+//        val recyclerView = RecyclerView(context)
+//        val linearLayoutManager = LinearLayoutManager(context)
+//        recyclerView.layoutManager =
+//            linearLayoutManager
+//        recyclerView.addItemDecoration(
+//            DividerItemDecoration(
+//                context,
+//                linearLayoutManager.orientation
+//            )
+//        )
+//        val subAdapter = Sub2Adapter(context,data)
+//        recyclerView.adapter = subAdapter
     }
 
 

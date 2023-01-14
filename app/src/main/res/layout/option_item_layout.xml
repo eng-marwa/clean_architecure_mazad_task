@@ -36,7 +36,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/subOptionsRV"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_height="wrap_content"
         />
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/otherLayout"

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +13,7 @@ import com.marwa.mazadattask.R
 import com.marwa.mazadattask.data.model.main_categiores.Categories
 import com.marwa.mazadattask.data.model.main_categiores.Children
 import com.marwa.mazadattask.databinding.FragmentMainBinding
+import com.marwa.mazadattask.presentation.main_categories.Item
 import com.marwa.mazadattask.presentation.main_categories.view.adapters.*
 import com.marwa.mazadattask.presentation.main_categories.viewmodel.CategoriesViewModel
 import com.marwa.mazadattask.util.showToast
@@ -22,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
+    private var level: String = ""
     private lateinit var oAdapter: OptionsAdapter
     private lateinit var suCategoryAdapter: SubCategoryAdapter
     private lateinit var categoryAdapter: CategoryAdapter
@@ -72,15 +73,17 @@ class MainFragment : Fragment() {
         }
         viewModel.optionsLiveData.observe(viewLifecycleOwner) {
             it?.fold({
-               oAdapter.setSubOptions(it.data)
+                    oAdapter.setSubOptions(it.data,level)
             }, {
                 showToast(it?.getMessage())
             })
         }
 
-
+        Item.ItemLiveData.observe(viewLifecycleOwner) {
+            level = "Child"
+            viewModel.getOptions(it)
+        }
     }
-
 
 
     private fun initViews() {
@@ -116,8 +119,10 @@ class MainFragment : Fragment() {
 
     private fun observeAdapter() {
         oAdapter.childOptionLiveData.observe(viewLifecycleOwner) {
+            level = "Parent"
             viewModel.getOptions(it)
         }
+
     }
 
     private fun setupCategoryDropDown() {

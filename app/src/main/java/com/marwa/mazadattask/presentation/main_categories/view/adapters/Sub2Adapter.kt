@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marwa.mazadattask.data.model.options.OptionsData
+import com.marwa.mazadattask.data.model.sub_categiores.SubCategoriesData
+import com.marwa.mazadattask.data.model.sub_categiores.SubCategoryOptions
 import com.marwa.mazadattask.databinding.OptionItemLayoutBinding
 
-class Sub2Adapter(private val context: Context, private val data: ArrayList<OptionsData>) :
+class Sub2Adapter(private val context: Context) :
     RecyclerView.Adapter<Sub2Adapter.OptionsVH>() {
-    var list = ArrayList<OptionsData>()
-    val childOptionLiveData = MutableLiveData<Int>()
     private val TAG = "OptionsAdapter"
+    var list = ArrayList<OptionsData>()
 
     inner class OptionsVH(itemView: OptionItemLayoutBinding) :
         RecyclerView.ViewHolder(itemView.root) {
@@ -35,31 +36,29 @@ class Sub2Adapter(private val context: Context, private val data: ArrayList<Opti
         holder.optionLayout.hint = item.name
         holder.optionLayout.placeholderText = item.name
         setupDropDown(holder, item)
-        setupSubOptionRV(holder)
     }
 
-    private fun setupSubOptionRV(holder: OptionsVH) {
-        val linearLayoutManager = LinearLayoutManager(context)
-        holder.subOptionsRV.layoutManager =
-            linearLayoutManager
-        holder.subOptionsRV.addItemDecoration(
-            DividerItemDecoration(
-                context,
-                linearLayoutManager.orientation
-            )
-        )
-        val subAdapter = Sub2Adapter(context, data)
-        holder.subOptionsRV.adapter = subAdapter
-
-    }
+//    private fun setupSubOptionRV(holder: OptionsVH) {
+//        val linearLayoutManager = LinearLayoutManager(context)
+//        holder.subOptionsRV.layoutManager =
+//            linearLayoutManager
+//        holder.subOptionsRV.addItemDecoration(
+//            DividerItemDecoration(
+//                context,
+//                linearLayoutManager.orientation
+//            )
+//        )
+//        val subAdapter = Sub2Adapter(context, data)
+//        holder.subOptionsRV.adapter = subAdapter
+//
+//    }
 
     private fun setupDropDown(holder: OptionsVH, item: OptionsData) {
         val subOptionsAdapter = SubOptionAdapter(context = context)
         subOptionsAdapter.setData(item.options)
         holder.optionDropDown.setAdapter(subOptionsAdapter)
         holder.optionDropDown.setOnItemClickListener { parent, view, position, id ->
-            val optionsData = parent.getItemAtPosition(position) as OptionsData
-            subOptionsAdapter.setData(optionsData.options)
+            val optionsData = parent.getItemAtPosition(position) as SubCategoryOptions
             holder.optionDropDown.setText(optionsData.name, false)
 
         }
@@ -73,6 +72,7 @@ class Sub2Adapter(private val context: Context, private val data: ArrayList<Opti
     fun setData(list: ArrayList<OptionsData>) {
         Log.d(TAG, "setData: ${list[0].name}")
         clear()
+        //  list.add(0, SubCategoryOptions(name = "اخرى", id = -1))
         this.list.addAll(list)
         notifyDataSetChanged()
     }
@@ -81,6 +81,5 @@ class Sub2Adapter(private val context: Context, private val data: ArrayList<Opti
         list.clear()
         notifyDataSetChanged()
     }
-
 
 }

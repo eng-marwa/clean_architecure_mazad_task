@@ -2,13 +2,16 @@ package com.marwa.mazadattask.presentation.main_categories.view.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marwa.mazadattask.data.model.options.OptionsData
 import com.marwa.mazadattask.data.model.sub_categiores.SubCategoryOptions
 import com.marwa.mazadattask.databinding.OptionItemLayoutBinding
+import com.marwa.mazadattask.presentation.main_categories.Item.ItemLiveData
 
 class SubAdapter(
     private val context: Context,
@@ -38,10 +41,9 @@ class SubAdapter(
         holder.optionLayout.hint = item.name
         holder.optionLayout.placeholderText = item.name
         setupDropDown(holder, item)
-//        setupSubOptionRV(holder)
     }
 
-    private fun setupSubOptionRV(holder: OptionsVH, data: ArrayList<OptionsData>) {
+    private fun setupSubOptionRV(holder: OptionsVH) {
         val linearLayoutManager = LinearLayoutManager(context)
         holder.subOptionsRV.layoutManager =
             linearLayoutManager
@@ -51,7 +53,7 @@ class SubAdapter(
                 linearLayoutManager.orientation
             )
         )
-        sub2Adapter = Sub2Adapter(context,data)
+        sub2Adapter = Sub2Adapter(context)
         holder.subOptionsRV.adapter = sub2Adapter
     }
 
@@ -61,22 +63,20 @@ class SubAdapter(
         holder.optionDropDown.setAdapter(nestedOptionsAdapter)
         holder.optionDropDown.setOnItemClickListener { parent, view, position, id ->
             val subCategoryOptions = parent.getItemAtPosition(position) as SubCategoryOptions
-//            if (subCategoryOptions.id == -1) {
-//                holder.otherLayout.visibility = View.VISIBLE
-//            } else if (subCategoryOptions.child == true) {
-//               setupSubOptionRV(holder)
-//                holder.otherLayout.visibility = View.GONE
-//
-//
-//            }
+            if (subCategoryOptions.id == -1) {
+                holder.otherLayout.visibility = View.VISIBLE
+            } else if (subCategoryOptions.child == true) {
+               setupSubOptionRV(holder)
+                ItemLiveData.value = subCategoryOptions.id
+                holder.otherLayout.visibility = View.GONE
+            }
             holder.optionDropDown.setText(subCategoryOptions.name, false)
 
         }
     }
 
-    private fun observeViewModel(holder: OptionsVH) {
 
-    }
+
 
     override fun getItemCount(): Int {
         return list.size
@@ -91,6 +91,10 @@ class SubAdapter(
     fun clear() {
         list.clear()
         notifyDataSetChanged()
+    }
+
+    fun createChildRV(data: ArrayList<OptionsData>) {
+      sub2Adapter.setData(data)
     }
 
 

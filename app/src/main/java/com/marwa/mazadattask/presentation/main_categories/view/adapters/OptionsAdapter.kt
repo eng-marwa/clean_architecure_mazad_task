@@ -16,7 +16,7 @@ import com.marwa.mazadattask.data.model.sub_categiores.SubCategoryOptions
 import com.marwa.mazadattask.databinding.OptionItemLayoutBinding
 import com.marwa.mazadattask.presentation.main_categories.viewmodel.CategoriesViewModel
 
-class OptionsAdapter(private val context: Context,private val viewModel: CategoriesViewModel,   private val lifecycleOwner: LifecycleOwner) :
+class OptionsAdapter(private val context: Context) :
     RecyclerView.Adapter<OptionsAdapter.OptionsVH>() {
     private lateinit var subAdapter: SubAdapter
     var list = ArrayList<SubCategoriesData>()
@@ -55,7 +55,7 @@ class OptionsAdapter(private val context: Context,private val viewModel: Categor
                 linearLayoutManager.orientation
             )
         )
-        subAdapter = SubAdapter(context,viewModel,lifecycleOwner)
+        subAdapter = SubAdapter(context)
         holder.subOptionsRV.adapter = subAdapter
     }
 

@@ -1,7 +1,6 @@
 package com.marwa.mazadattask.presentation.main_categories.view.adapters
 
 import android.content.Context
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,11 +9,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marwa.mazadattask.data.model.options.OptionsData
-import com.marwa.mazadattask.data.model.sub_categiores.SubCategoriesData
-import com.marwa.mazadattask.data.model.sub_categiores.SubCategoryOptions
 import com.marwa.mazadattask.databinding.OptionItemLayoutBinding
 
-class Sub2Adapter(private val context: Context) :
+class Sub2Adapter(private val context: Context, private val data: ArrayList<OptionsData>) :
     RecyclerView.Adapter<Sub2Adapter.OptionsVH>() {
     var list = ArrayList<OptionsData>()
     val childOptionLiveData = MutableLiveData<Int>()
@@ -51,8 +48,7 @@ class Sub2Adapter(private val context: Context) :
                 linearLayoutManager.orientation
             )
         )
-        holder.subOptionsRV.setBackgroundColor(Color.parseColor("#255eba"));
-        val subAdapter = Sub2Adapter(context)
+        val subAdapter = Sub2Adapter(context, data)
         holder.subOptionsRV.adapter = subAdapter
 
     }

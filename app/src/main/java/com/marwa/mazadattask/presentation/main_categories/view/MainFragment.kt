@@ -72,7 +72,7 @@ class MainFragment : Fragment() {
         }
         viewModel.optionsLiveData.observe(viewLifecycleOwner) {
             it?.fold({
-                oAdapter.setSubOptions(it.data)
+               oAdapter.setSubOptions(it.data)
             }, {
                 showToast(it?.getMessage())
             })
@@ -106,7 +106,7 @@ class MainFragment : Fragment() {
                     linearLayoutManager.orientation
                 )
             )
-            oAdapter = OptionsAdapter(context,viewModel,viewLifecycleOwner)
+            oAdapter = OptionsAdapter(context)
             binding.rvOptions.adapter = oAdapter
 
         }

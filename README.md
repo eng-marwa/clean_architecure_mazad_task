@@ -16,7 +16,7 @@ Clean architecture refers to organizing the project so that it’s easy to under
   <tr>
     <td><img src="https://github.com/eng-marwa/clean_architecure_mazad_task/blob/master/Screenshot_1674008879.png" width="400"></td>
    <td><img src="https://github.com/eng-marwa/clean_architecure_mazad_task/blob/master/Screenshot_1674008885.png" width="400"></td>
-   <td><img src="[https://github.com/eng-marwa/clean_architecure_mazad_task/blob/master/Screenshot_1674008915.png" width="400"></td>
+   <td><img src="https://github.com/eng-marwa/clean_architecure_mazad_task/blob/master/Screenshot_1674008915.png" width="400"></td>
   </tr>
   <tr>
     <td><img src="https://github.com/eng-marwa/clean_architecure_mazad_task/blob/master/Screenshot_1673707484.png" width="400"></td>

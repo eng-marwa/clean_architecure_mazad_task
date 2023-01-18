@@ -62,15 +62,15 @@ class MainFragment : Fragment() {
             })
         }
 
-        viewModel.subCategoriesLiveData.observe(viewLifecycleOwner) {
-            it?.fold({
-                if (::oAdapter.isInitialized) {
-                    oAdapter.setData(it.data)
-                }
-            }, {
-                showToast(it?.getMessage())
-            })
-        }
+//        viewModel.subCategoriesLiveData.observe(viewLifecycleOwner) {
+//            it?.fold({
+//                if (::oAdapter.isInitialized) {
+//                    oAdapter.setData(it.data)
+//                }
+//            }, {
+//                showToast(it?.getMessage())
+//            })
+//        }
         viewModel.optionsLiveData.observe(viewLifecycleOwner) {
             it?.fold({
                     oAdapter.setSubOptions(it.data,level)
@@ -152,7 +152,7 @@ class MainFragment : Fragment() {
             binding.subCategoriesDropDown.setAdapter(suCategoryAdapter)
             binding.subCategoriesDropDown.setOnItemClickListener { parent, view, position, id ->
                 val child = parent.getItemAtPosition(position) as Children
-                viewModel.getSubCategories(child.id!!)
+                //viewModel.getSubCategories(child.id!!)
                 binding.subCategoriesDropDown.setText(child.name, false)
             }
         }

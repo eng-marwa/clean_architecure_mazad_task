@@ -1,8 +1,10 @@
 package com.marwa.mazadattask.data.model.sub_categiores
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class SubCategoriesData(
 
     @SerializedName("id") var id: Int? = null,
@@ -14,6 +16,6 @@ data class SubCategoriesData(
     @SerializedName("type") var type: String? = null,
     @SerializedName("value") var value: String? = null,
     @SerializedName("other_value") var otherValue: String? = null,
-    @SerializedName("options") var options: ArrayList<SubCategoryOptions> = arrayListOf()
+    @SerializedName("options") var SubCategoryOptions: ArrayList<SubCategoryOptions> = arrayListOf()
 
-)
+):Parcelable

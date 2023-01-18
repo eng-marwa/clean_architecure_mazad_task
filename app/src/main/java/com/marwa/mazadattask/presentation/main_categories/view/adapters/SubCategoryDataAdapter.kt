@@ -2,6 +2,7 @@ package com.marwa.mazadattask.presentation.main_categories.view.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,20 +12,22 @@ import com.marwa.mazadattask.data.model.sub_categiores.SubCategoriesData
 import com.marwa.mazadattask.databinding.SubItemsRowBinding
 import com.marwa.mazadattask.presentation.main_categories.Item
 
-class SubAdapter(
-    private val context: Context,
-) :
-    RecyclerView.Adapter<SubAdapter.OptionsVH>() {
-    private var adapterPosition: Int = 0
-    var list = ArrayList<OptionsData>()
-    private val TAG = "SubAdapter"
-    private lateinit var adapter: OptionTypeAdapter
-
+class SubCategoryDataAdapter(private val context: Context) :
+    RecyclerView.Adapter<SubCategoryDataAdapter.OptionsVH>() {
+    private var hint: String = ""
+    private var hintVisible: Boolean = false
+    private var textVisible: Boolean = false
+    private lateinit var adapter: SubAdapter
+    private var adapterPosition: Int = -1
+    var list = ArrayList<SubCategoriesData>()
+    private val TAG = "OptionsAdapter"
 
     inner class OptionsVH(itemView: SubItemsRowBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         val optionLayout = itemView.lbMainCategoryItem
         val rvOptions = itemView.rvOptions
+        val frText = itemView.frText
+        val lbHintItem = itemView.lbHintItem
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionsVH = OptionsVH(
@@ -37,29 +40,43 @@ class SubAdapter(
         val item = list[position]
         holder.optionLayout.text = item.name
         holder.itemView.setOnClickListener {
-          Item.OptionsItemsLiveData.value = Pair(item,holder.adapterPosition)
+            Item.SelectedSubCategoriesLiveData.value = Pair(item, holder.adapterPosition)
             adapterPosition = holder.adapterPosition
+
         }
         setupOptionsRV(holder)
+        if (textVisible) {
+            holder.frText.visibility = View.VISIBLE
+        } else {
+            holder.frText.visibility = View.GONE
+        }
+        if (hintVisible) {
+            holder.lbHintItem.visibility = View.VISIBLE
+        }
     }
+
     private fun setupOptionsRV(holder: OptionsVH) {
         context?.let { context ->
             val linearLayoutManager = LinearLayoutManager(context)
             holder.rvOptions.layoutManager =
                 linearLayoutManager
-            adapter = OptionTypeAdapter(context)
+            adapter = SubAdapter(context)
             holder.rvOptions.adapter = adapter
 
         }
     }
+
     override fun getItemCount(): Int {
         return list.size
     }
 
-    fun setData(list: ArrayList<OptionsData>) {
+    fun setData(list: ArrayList<SubCategoriesData>) {
         clear()
-        this.list.addAll(list)
-        notifyDataSetChanged()
+        list?.let {
+            this.list.addAll(it)
+            notifyDataSetChanged()
+        }
+
     }
 
     fun clear() {
@@ -67,19 +84,39 @@ class SubAdapter(
         notifyDataSetChanged()
     }
 
-    fun updateAdapter(name: String?) {
-        list[adapterPosition].name=name!!
+    fun updateAdapter(name: String?, other: Boolean) {
+        list[adapterPosition].name = name
+        this.textVisible = other
+        this.hintVisible = true
         notifyItemChanged(adapterPosition)
+
     }
 
-    fun setAdapterData(it: ArrayList<OptionsData>) {
-        adapter.setData(it)
+    fun setOptions(it: ArrayList<OptionsData>) {
+        if (::adapter.isInitialized) {
+            adapter.setData(it)
+
+        }
+    }
+
+    fun updateSubAdapter(name: String?) {
+        if (::adapter.isInitialized) {
+            adapter.updateAdapter(name)
+        }
+    }
+
+    fun setSubOptions(optionData: ArrayList<OptionsData>) {
+        if (::adapter.isInitialized) {
+            adapter.setAdapterData(optionData)
+
+        }
     }
 
     fun updateSubLevelAdapter(name: String?) {
-        if(::adapter.isInitialized){
+        if (::adapter.isInitialized) {
             adapter.updateSubLevelAdapter(name)
         }
     }
+
 
 }

@@ -39,7 +39,7 @@ class OptionsAdapter(private val context: Context) :
         val item = list[position]
         holder.optionLayout.hint = item.name
         holder.optionLayout.placeholderText = item.name
-        setupDropDown(holder, item.options)
+       // setupDropDown(holder, item.options)
     }
 
     private fun setupSubOptionRV(holder: OptionsVH) {
@@ -98,25 +98,11 @@ class OptionsAdapter(private val context: Context) :
                 subAdapter.setData(data)
             }
         }else{
-            createChildRV(data)
+          //  createChildRV(data)
         }
     }
 
-    private fun createChildRV(data: ArrayList<OptionsData>) {
-        subAdapter.createChildRV(data)
-//        val recyclerView = RecyclerView(context)
-//        val linearLayoutManager = LinearLayoutManager(context)
-//        recyclerView.layoutManager =
-//            linearLayoutManager
-//        recyclerView.addItemDecoration(
-//            DividerItemDecoration(
-//                context,
-//                linearLayoutManager.orientation
-//            )
-//        )
-//        val subAdapter = Sub2Adapter(context,data)
-//        recyclerView.adapter = subAdapter
-    }
+
 
 
 }

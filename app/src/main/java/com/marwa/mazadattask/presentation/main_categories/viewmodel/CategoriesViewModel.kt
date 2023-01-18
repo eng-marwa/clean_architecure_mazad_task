@@ -22,7 +22,7 @@ class CategoriesViewModel @Inject constructor(
 ) :
     ViewModel() {
     val categoriesLiveData = MutableLiveData<Either<ResponseCategories, BaseException>>()
-    val subCategoriesLiveData = MutableLiveData<Either<ResponseSubCategories, BaseException>>()
+    val subCategoriesOptionsLiveData = MutableLiveData<Either<ResponseSubCategories, BaseException>>()
     val optionsLiveData = MutableLiveData<Either<ResponseOptions, BaseException>>()
     fun getCategories() {
         categoriesUseCases.invoke(onSuccess = {
@@ -35,12 +35,12 @@ class CategoriesViewModel @Inject constructor(
         })
     }
 
-    fun getSubCategories(id: Int) {
+    fun getSubCategoriesOptions(id: Int) {
         subCategoriesUseCases.invoke(id, onSuccess = {
-            subCategoriesLiveData.value = Either.Left<ResponseSubCategories>(it)
+            subCategoriesOptionsLiveData.value = Either.Left<ResponseSubCategories>(it)
         }, onError = {
             it?.let {
-                subCategoriesLiveData.value = Either.Right<BaseException>(it)
+                subCategoriesOptionsLiveData.value = Either.Right<BaseException>(it)
 
             }
 

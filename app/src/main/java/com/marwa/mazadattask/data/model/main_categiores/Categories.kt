@@ -1,8 +1,10 @@
 package com.marwa.mazadattask.data.model.main_categiores
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 data class Categories(
 
     @SerializedName("id") var id: Int? = null,
@@ -14,4 +16,4 @@ data class Categories(
     @SerializedName("circle_icon") var circleIcon: String? = null,
     @SerializedName("disable_shipping") var disableShipping: Int? = null
 
-)
+):Parcelable

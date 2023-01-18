@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.marwa.mazadattask.presentation.main_categories.view.MainFragment"
+        android:name="com.marwa.mazadattask.presentation.main_categories.view.MainFragment1"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main1" >
         <action
             android:id="@+id/action_navigation_main_to_detailsFragment"
             app:destination="@id/detailsFragment" />

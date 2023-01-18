@@ -1,0 +1,71 @@
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/lbMainCategoryItem"
+            style="@style/textStyle"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/lbHintItem"
+            style="@style/black_filed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/lable_bg"
+            android:visibility="gone"
+            android:text="حدد هنا" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/frText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:visibility="gone">
+
+
+        <EditText
+            android:id="@+id/lbOtherItem"
+            style="@style/borderTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/lbHint"
+            style="@style/black_filed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/lable_bg"
+            android:text="حدد هنا" />
+
+    </FrameLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+

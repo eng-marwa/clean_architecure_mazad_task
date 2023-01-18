@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -61,6 +62,17 @@ class ItemOptionsBottomSheetFragment : BottomSheetDialogFragment() {
         binding.btnCloseDialog.setOnClickListener {
             dismiss()
         }
+
+        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                (binding.rvItems.adapter as SubItemOptionsAdapter).filter(newText)
+                return true
+            }
+        })
     }
 
     private fun setupItemsRV() {

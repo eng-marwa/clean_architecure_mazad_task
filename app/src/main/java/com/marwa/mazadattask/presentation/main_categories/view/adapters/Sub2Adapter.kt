@@ -33,7 +33,6 @@ class Sub2Adapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: OptionsVH, position: Int) {
         val item = list[position]
-        holder.optionLayout.hint = item.name
         holder.optionLayout.placeholderText = item.name
         setupDropDown(holder, item)
     }

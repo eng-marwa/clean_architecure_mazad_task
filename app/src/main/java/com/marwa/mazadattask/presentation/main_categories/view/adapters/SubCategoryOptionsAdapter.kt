@@ -30,7 +30,7 @@ class SubCategoryOptionsAdapter(private val context: Context) :
         val item = list[position]
         holder.optionLayout.text = item.name
         holder.itemView.setOnClickListener {
-            Item.SelectedSubCategoryOptionLiveData.value = Pair(item,position)
+            Item.SelectedSubCategoryOptionLiveData.value = Pair(item, position)
         }
 
     }
@@ -53,6 +53,24 @@ class SubCategoryOptionsAdapter(private val context: Context) :
     fun clear() {
         list.clear()
         notifyDataSetChanged()
+    }
+
+    fun modifyList(list: ArrayList<SubCategoryOptions>) {
+        this.setData(list, position)
+        notifyDataSetChanged()
+    }
+
+    fun filter(query: CharSequence?) {
+        val newList = ArrayList<SubCategoryOptions>()
+        if (!query.isNullOrEmpty()) {
+            newList.addAll(list.filter {
+                it.name!!.toLowerCase().contains(query.toString().toLowerCase())
+            })
+        } else {
+            newList.addAll(list)
+        }
+
+        modifyList(newList)
     }
 
 

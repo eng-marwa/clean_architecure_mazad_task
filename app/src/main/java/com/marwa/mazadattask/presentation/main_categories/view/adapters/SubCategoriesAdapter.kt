@@ -63,5 +63,23 @@ class SubCategoriesAdapter(private val context: Context) :
         notifyDataSetChanged()
     }
 
+    fun modifyList(list: ArrayList<Children>) {
+        this.setData(list)
+        notifyDataSetChanged()
+    }
+
+    fun filter(query: CharSequence?) {
+        val newList = ArrayList<Children>()
+        if (!query.isNullOrEmpty()) {
+            newList.addAll(list.filter {
+                it.name!!.toLowerCase().contains(query.toString().toLowerCase())
+            })
+        } else {
+            newList.addAll(list)
+        }
+
+        modifyList(newList)
+    }
+
 
 }

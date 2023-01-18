@@ -15,7 +15,6 @@ import com.marwa.mazadattask.presentation.main_categories.Item
 class SubCategoryDataAdapter(private val context: Context) :
     RecyclerView.Adapter<SubCategoryDataAdapter.OptionsVH>() {
     private var hint: String = ""
-    private var hintVisible: Boolean = false
     private var textVisible: Boolean = false
     private lateinit var adapter: SubAdapter
     private var adapterPosition: Int = -1
@@ -50,9 +49,7 @@ class SubCategoryDataAdapter(private val context: Context) :
         } else {
             holder.frText.visibility = View.GONE
         }
-        if (hintVisible) {
-            holder.lbHintItem.visibility = View.VISIBLE
-        }
+
     }
 
     private fun setupOptionsRV(holder: OptionsVH) {
@@ -87,7 +84,6 @@ class SubCategoryDataAdapter(private val context: Context) :
     fun updateAdapter(name: String?, other: Boolean) {
         list[adapterPosition].name = name
         this.textVisible = other
-        this.hintVisible = true
         notifyItemChanged(adapterPosition)
 
     }
